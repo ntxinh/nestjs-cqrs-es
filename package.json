@@ -21,11 +21,14 @@
     "@nestjs/cqrs": "^6.1.0",
     "@nestjs/platform-express": "^6.10.5",
     "@nestjs/swagger": "^3.1.0",
+    "@nestjs/typeorm": "^6.2.0",
     "cli-color": "^2.0.0",
     "dotenv": "^8.2.0",
+    "mssql": "^6.0.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.3",
-    "swagger-ui-express": "^4.1.2"
+    "swagger-ui-express": "^4.1.2",
+    "typeorm": "^0.2.20"
   },
   "devDependencies": {
     "@types/express": "^4.17.2",
