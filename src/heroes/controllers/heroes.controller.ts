@@ -23,7 +23,6 @@ export class HeroesGameController {
   @ApiResponse({ status: 201, description: 'Create hero' })
   @Post()
   async create(@Body() dto: HeroDto) {
-    console.log('create hero controller');
     await this.heroesService.create(dto);
     return true;
   }

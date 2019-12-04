@@ -5,13 +5,6 @@ import { HeroKilledDragonEvent } from '../events/impl/hero-killed-dragon.event';
 import { HeroFoundItemEvent } from '../events/impl/hero-found-item.event';
 import { HeroCreatedEvent } from '../events/impl/hero-created-event';
 
-export const createHero = ({ name }) => {
-  const newHero = new Hero();
-  const heroCreatedEvent = new HeroCreatedEvent({ aggregateId: uuidv4(), name });
-  newHero.apply(heroCreatedEvent);
-  return newHero;
-};
-
 @Entity({name: 'heroes'})
 export class Hero extends AggregateRoot {
   @PrimaryGeneratedColumn('uuid')
@@ -30,8 +23,11 @@ export class Hero extends AggregateRoot {
     this.apply(new HeroFoundItemEvent(this.id, itemId));
   }
 
-  onHeroCreated(event: HeroCreatedEvent) {
-    this.id = event.aggregateId;
-    this.name = event.name;
+  setData({ name }) {
+    this.name = name;
+  }
+
+  createHero() {
+    this.apply(new HeroCreatedEvent({ aggregateId: uuidv4(), name: this.name }));
   }
 }
