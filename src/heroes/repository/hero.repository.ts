@@ -13,9 +13,12 @@ export class HeroRepository extends Repository<Hero> {
   }
 
   async createHero(heroDto): Promise<Hero> {
+    // Save to db
     const hero = new Hero();
     hero.setData(heroDto);
+    await this.save(hero);
+    // Apply event
     hero.createHero();
-    return await this.save(hero);
+    return hero;
   }
 }

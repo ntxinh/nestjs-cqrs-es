@@ -1,4 +1,5 @@
 # Control flow
 ```
-Controller -> Service -> Command/Query -> Saga -> Event -> ... -> Repository
+Controller -> Service -> Command -> Repository -> Event -> Saga -> Event
+Controller -> Service -> Query -> Repository -> Event -> Saga -> Event
 ```

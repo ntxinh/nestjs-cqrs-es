@@ -1,6 +1,5 @@
 import { AggregateRoot } from '@nestjs/cqrs';
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-import * as uuidv4 from 'uuid/v4';
 import { HeroKilledDragonEvent } from '../events/impl/hero-killed-dragon.event';
 import { HeroFoundItemEvent } from '../events/impl/hero-found-item.event';
 import { HeroCreatedEvent } from '../events/impl/hero-created-event';
@@ -28,6 +27,6 @@ export class Hero extends AggregateRoot {
   }
 
   createHero() {
-    this.apply(new HeroCreatedEvent({ aggregateId: uuidv4(), name: this.name }));
+    this.apply(new HeroCreatedEvent({ aggregateId: this.id, name: this.name }));
   }
 }
