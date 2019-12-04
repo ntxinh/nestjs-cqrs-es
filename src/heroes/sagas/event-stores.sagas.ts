@@ -1,18 +1,20 @@
 import { Injectable } from '@nestjs/common';
 import { ICommand, Saga, ofType } from '@nestjs/cqrs';
+import * as clc from 'cli-color';
 import { getRepository } from 'typeorm';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { HeroCreatedEvent } from '../events/impl/hero-created-event';
 import { Event } from '../entities/event.entity';
+import { AggregateRootEvent } from '../events/impl/aggregate-root-event';
 
 @Injectable()
 export class EventStoresSagas {
   @Saga()
   eventPublished = (events$: Observable<any>): Observable<ICommand> => {
     return events$.pipe(
-      ofType(HeroCreatedEvent),
+      ofType(AggregateRootEvent),
       map(event => {
+        console.log(clc.redBright('Inside [EventStoresSagas] Saga'));
         const storedEvent = new Event();
         storedEvent.payload = event;
         storedEvent.aggregateId = event.aggregateId;
