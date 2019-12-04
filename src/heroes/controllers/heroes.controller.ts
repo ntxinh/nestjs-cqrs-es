@@ -5,12 +5,19 @@ import { KillDragonDto } from '../interfaces/kill-dragon-dto.interface';
 import { Hero } from '../entities/hero.entity';
 import { HeroDto } from '../dtos/hero.dto';
 
-@Controller('hero')
+@Controller('heroes')
 @ApiTags('Heroes')
 export class HeroesGameController {
   constructor(
     private readonly heroesService: HeroesService,
   ) {}
+
+  @ApiOperation({ summary: 'Get A Hero' })
+  @ApiResponse({ status: 200, description: 'Get hero by id' })
+  @Get(':id')
+  async findById(@Param('id') id: string): Promise<Hero> {
+    return await this.heroesService.findById(id);
+  }
 
   @ApiOperation({ summary: 'Get Heroes' })
   @ApiResponse({ status: 200, description: 'Get heroes' })

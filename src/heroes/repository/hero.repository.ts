@@ -4,7 +4,7 @@ import { Hero } from '../entities/hero.entity';
 @EntityRepository(Hero)
 export class HeroRepository extends Repository<Hero> {
 
-  async findOneById(id: number): Promise<Hero> {
+  async findById(id: string): Promise<Hero> {
     return await this.findOne(id);
   }
 

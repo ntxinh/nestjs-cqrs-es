@@ -1,10 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import { KillDragonCommand } from '../commands/impl/kill-dragon.command';
-import { GetHeroesQuery } from '../queries/impl';
+import { GetHeroesQuery, GetHeroQuery } from '../queries/impl';
 import { KillDragonDto } from '../interfaces/kill-dragon-dto.interface';
 import { Hero } from '../entities/hero.entity';
-import { CreateHeroCommand } from '../commands/impl/create-hero.command';
+import { CreateHeroCommand, KillDragonCommand } from '../commands/impl';
 import { HeroDto } from '../dtos/hero.dto';
 
 @Injectable()
@@ -22,6 +21,10 @@ export class HeroesService {
 
   async findAll(): Promise<Hero[]> {
     return await this.queryBus.execute(new GetHeroesQuery());
+  }
+
+  async findById(id: string): Promise<Hero> {
+    return await this.queryBus.execute(new GetHeroQuery(id));
   }
 
   async create(dto: HeroDto): Promise<void> {

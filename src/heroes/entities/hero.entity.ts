@@ -1,8 +1,7 @@
 import { AggregateRoot } from '@nestjs/cqrs';
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-import { HeroKilledDragonEvent } from '../events/impl/hero-killed-dragon.event';
-import { HeroFoundItemEvent } from '../events/impl/hero-found-item.event';
-import { HeroCreatedEvent } from '../events/impl/hero-created-event';
+import { HeroFoundItemEvent, HeroKilledDragonEvent } from '../events/impl';
+import { HeroCreatedEvent } from '../events/impl';
 
 @Entity({name: 'heroes'})
 export class Hero extends AggregateRoot {

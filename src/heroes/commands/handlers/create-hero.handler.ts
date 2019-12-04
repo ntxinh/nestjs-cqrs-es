@@ -1,7 +1,7 @@
 import { CommandHandler, ICommandHandler, EventPublisher } from '@nestjs/cqrs';
 import * as clc from 'cli-color';
 import { HeroRepository } from '../../repository/hero.repository';
-import { CreateHeroCommand } from '../impl/create-hero.command';
+import { CreateHeroCommand } from '../impl';
 
 @CommandHandler(CreateHeroCommand)
 export class CreateHeroHandler implements ICommandHandler<CreateHeroCommand> {

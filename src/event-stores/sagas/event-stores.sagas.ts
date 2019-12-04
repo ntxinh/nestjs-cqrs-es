@@ -5,7 +5,7 @@ import { getRepository } from 'typeorm';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Event } from '../entities/event.entity';
-import { AggregateRootEvent } from '../events/impl/aggregate-root-event';
+import { AggregateRootEvent } from '../events/aggregate-root.event';
 
 @Injectable()
 export class EventStoresSagas {

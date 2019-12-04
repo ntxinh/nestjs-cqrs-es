@@ -1,7 +1,7 @@
 import { CommandHandler, EventPublisher, ICommandHandler } from '@nestjs/cqrs';
 import * as clc from 'cli-color';
 import { HeroRepository } from '../../repository/hero.repository';
-import { KillDragonCommand } from '../impl/kill-dragon.command';
+import { KillDragonCommand } from '../impl';
 
 @CommandHandler(KillDragonCommand)
 export class KillDragonHandler implements ICommandHandler<KillDragonCommand> {
@@ -15,7 +15,7 @@ export class KillDragonHandler implements ICommandHandler<KillDragonCommand> {
 
     const { heroId, dragonId } = command;
     const hero = this.publisher.mergeObjectContext(
-      await this.repository.findOneById(+heroId),
+      await this.repository.findById(heroId),
     );
     hero.killEnemy(dragonId);
     hero.commit();
