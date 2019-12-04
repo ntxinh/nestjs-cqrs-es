@@ -9,6 +9,7 @@ import { HeroesGameSagas } from './sagas/heroes.sagas';
 import { HeroesService } from './services/heros.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Hero } from './entities/hero.entity';
+import { EventStoresSagas } from './sagas/event-stores.sagas';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { Hero } from './entities/hero.entity';
     ...EventHandlers,
     ...QueryHandlers,
     HeroesGameSagas,
+    EventStoresSagas,
   ],
 })
 export class HeroesGameModule {}

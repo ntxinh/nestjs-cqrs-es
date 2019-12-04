@@ -1,10 +1,11 @@
 {
-  "type": "mssql",
+  "type": "postgres",
   "host": "localhost",
-  "port": 1433,
-  "username": "sa",
+  "port": 5432,
+  "username": "postgres",
   "password": "123",
-  "database": "boilerplate_development",
+  "database": "postgres",
   "entities": ["**/**/entities/*.entity{.ts,.js}"],
-  "synchronize": true
+  "synchronize": true,
+  "logging": false
 }

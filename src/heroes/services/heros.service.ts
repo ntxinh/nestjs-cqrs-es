@@ -14,7 +14,7 @@ export class HeroesService {
     private readonly queryBus: QueryBus,
   ) {}
 
-  async killDragon(id: number, dto: KillDragonDto) {
+  async killDragon(id: string, dto: KillDragonDto) {
     return await this.commandBus.execute(
       new KillDragonCommand(id, dto.dragonId),
     );

@@ -31,7 +31,7 @@ export class HeroesGameController {
   @ApiOperation({ summary: 'Kill Dragon' })
   @ApiResponse({ status: 200, description: 'Hero kill dragon' })
   @Post(':id/kill')
-  async killDragon(@Param('id') id: number, @Body() dto: KillDragonDto) {
+  async killDragon(@Param('id') id: string, @Body() dto: KillDragonDto) {
     return this.heroesService.killDragon(id, dto);
   }
 }

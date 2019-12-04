@@ -1,6 +1,6 @@
 export class KillDragonCommand {
     constructor(
-      public readonly heroId: number,
+      public readonly heroId: string,
       public readonly dragonId: string,
     ) {}
 }
