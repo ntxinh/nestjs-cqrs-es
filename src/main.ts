@@ -9,12 +9,12 @@ async function bootstrap() {
     .setTitle(config.TITLE)
     .setDescription(config.DESCRIPTION)
     .setVersion(config.VERSION)
-    .setBasePath(`/${config.PREFIX}`)
+    // .setBasePath(`/${config.PREFIX}`)
     .build();
   const document = SwaggerModule.createDocument(app, documentOptions);
-  app.setGlobalPrefix(config.PREFIX);
+  // app.setGlobalPrefix(config.PREFIX);
   app.enableCors();
   SwaggerModule.setup(config.API_EXPLORER_PATH, app, document);
-  app.listen(config.PORT, () => console.log(`Application is listening on port ${config.PORT}.`));
+  await app.listen(config.PORT, () => console.log(`Application is listening on port ${config.PORT}.`));
 }
 bootstrap();

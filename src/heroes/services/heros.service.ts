@@ -4,6 +4,8 @@ import { KillDragonCommand } from '../commands/impl/kill-dragon.command';
 import { GetHeroesQuery } from '../queries/impl';
 import { KillDragonDto } from '../interfaces/kill-dragon-dto.interface';
 import { Hero } from '../entities/hero.entity';
+import { CreateHeroCommand } from '../commands/impl/create-hero.command';
+import { HeroDto } from '../dtos/hero.dto';
 
 @Injectable()
 export class HeroesService {
@@ -20,5 +22,9 @@ export class HeroesService {
 
   async findAll(): Promise<Hero[]> {
     return await this.queryBus.execute(new GetHeroesQuery());
+  }
+
+  async create(dto: HeroDto): Promise<void> {
+    await this.commandBus.execute(new CreateHeroCommand(dto));
   }
 }
