@@ -7,13 +7,17 @@ import { QueryHandlers } from './queries/handlers';
 import { HeroRepository } from './repository/hero.repository';
 import { HeroesGameSagas } from './sagas/heroes.sagas';
 import { HeroesService } from './services/heros.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Hero } from './entities/hero.entity';
 
 @Module({
-  imports: [CqrsModule],
+  imports: [
+    TypeOrmModule.forFeature([Hero, HeroRepository]),
+    CqrsModule
+  ],
   controllers: [HeroesGameController],
   providers: [
     HeroesService,
-    HeroRepository,
     ...CommandHandlers,
     ...EventHandlers,
     ...QueryHandlers,

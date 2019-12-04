@@ -3,7 +3,7 @@ import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { KillDragonCommand } from '../commands/impl/kill-dragon.command';
 import { GetHeroesQuery } from '../queries/impl';
 import { KillDragonDto } from '../interfaces/kill-dragon-dto.interface';
-import { Hero } from '../models/hero.model';
+import { Hero } from '../entities/hero.entity';
 
 @Injectable()
 export class HeroesService {
@@ -12,7 +12,7 @@ export class HeroesService {
     private readonly queryBus: QueryBus,
   ) {}
 
-  async killDragon(id: string, dto: KillDragonDto) {
+  async killDragon(id: number, dto: KillDragonDto) {
     return await this.commandBus.execute(
       new KillDragonCommand(id, dto.dragonId),
     );

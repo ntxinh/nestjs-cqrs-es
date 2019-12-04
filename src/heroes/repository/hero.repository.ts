@@ -1,14 +1,14 @@
-import { Injectable } from '@nestjs/common';
-import { Hero } from '../models/hero.model';
-import { userHero } from './fixtures/user';
+import { Repository, EntityRepository } from 'typeorm';
+import { Hero } from '../entities/hero.entity';
 
-@Injectable()
-export class HeroRepository {
+@EntityRepository(Hero)
+export class HeroRepository extends Repository<Hero> {
+
   async findOneById(id: number): Promise<Hero> {
-    return userHero;
+    return await this.findOne(id);
   }
 
   async findAll(): Promise<Hero[]> {
-    return [userHero];
+    return await this.find();
   }
 }
