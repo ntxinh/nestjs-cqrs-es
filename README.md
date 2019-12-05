@@ -1,7 +1,6 @@
 # Control flow
 ```
-Controller -> Service -> Command -> Repository -> Event -> Saga -> Event
-Controller -> Service -> Query -> Repository -> Event -> Saga -> Event
+Controller -> Service -> Command/Query Bus -> Command/Query Handler -> Repository -> Entity -> Event -> Saga -> Event Handler
 ```
 
 # Swagger

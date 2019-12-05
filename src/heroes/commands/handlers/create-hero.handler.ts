@@ -17,6 +17,10 @@ export class CreateHeroHandler implements ICommandHandler<CreateHeroCommand> {
     const hero = this.publisher.mergeObjectContext(
       await this.repository.createHero(dto),
     );
+    // --- Side effect ---
+    // Push event
+    hero.createHero();
+    // Publish event
     hero.commit();
   }
 }

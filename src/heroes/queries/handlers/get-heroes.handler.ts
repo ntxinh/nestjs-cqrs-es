@@ -9,6 +9,6 @@ export class GetHeroesHandler implements IQueryHandler<GetHeroesQuery> {
 
   async execute(query: GetHeroesQuery) {
     console.log(clc.yellowBright('Async GetHeroesQuery...'));
-    return this.repository.findAll();
+    return await this.repository.findAll();
   }
 }

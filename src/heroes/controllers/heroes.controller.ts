@@ -23,7 +23,7 @@ export class HeroesGameController {
   @ApiResponse({ status: 200, description: 'Get heroes' })
   @Get()
   async findAll(): Promise<Hero[]> {
-    return this.heroesService.findAll();
+    return await this.heroesService.findAll();
   }
 
   @ApiOperation({ summary: 'Create Hero' })
@@ -38,6 +38,6 @@ export class HeroesGameController {
   @ApiResponse({ status: 200, description: 'Hero kill dragon' })
   @Post(':id/kill')
   async killDragon(@Param('id') id: string, @Body() dto: KillDragonDto) {
-    return this.heroesService.killDragon(id, dto);
+    return await this.heroesService.killDragon(id, dto);
   }
 }
