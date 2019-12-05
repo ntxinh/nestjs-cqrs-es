@@ -15,7 +15,8 @@ export class Event {
   @Column()
   className: string;
 
-  @Column('json')
+  // @Column('json') -> for mysql, postgres
+  @Column('simple-json')
   payload: any;
 
   @Column()

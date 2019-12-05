@@ -24,7 +24,7 @@
     "@nestjs/typeorm": "^6.2.0",
     "cli-color": "^2.0.0",
     "dotenv": "^8.2.0",
-    "pg": "^7.14.0",
+    "mssql": "^6.0.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.3",
     "swagger-ui-express": "^4.1.2",
