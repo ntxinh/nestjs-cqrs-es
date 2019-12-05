@@ -5,7 +5,7 @@ import { HeroCreatedEvent } from '../impl';
 
 @EventsHandler(HeroCreatedEvent)
 export class HeroCreatedHandler implements IEventHandler<HeroCreatedEvent> {
-  public handle(event: HeroCreatedEvent) {
+  public handle(event: HeroCreatedEvent): void {
     console.log(clc.greenBright('HeroCreatedEvent...'));
   }
 }

@@ -10,7 +10,7 @@ export class KillDragonHandler implements ICommandHandler<KillDragonCommand> {
     private readonly publisher: EventPublisher,
   ) {}
 
-  public async execute(command: KillDragonCommand) {
+  public async execute(command: KillDragonCommand): Promise<void> {
     console.log(clc.greenBright('KillDragonCommand...'));
 
     const { heroId, dragonId } = command;

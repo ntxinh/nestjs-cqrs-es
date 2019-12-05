@@ -27,7 +27,7 @@ export class HeroesGameController {
   @ApiOperation({ summary: 'Create Hero' })
   @ApiResponse({ status: 201, description: 'Create hero' })
   @Post()
-  public async create(@Body() dto: HeroDto) {
+  public async create(@Body() dto: HeroDto): Promise<boolean> {
     await this.heroesService.create(dto);
     return true;
   }
@@ -35,7 +35,7 @@ export class HeroesGameController {
   @ApiOperation({ summary: 'Kill Dragon' })
   @ApiResponse({ status: 200, description: 'Hero kill dragon' })
   @Post(':id/kill')
-  public async killDragon(@Param('id') id: string, @Body() dto: KillDragonDto) {
+  public async killDragon(@Param('id') id: string, @Body() dto: KillDragonDto): Promise<void> {
     return await this.heroesService.killDragon(id, dto);
   }
 }

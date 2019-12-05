@@ -3,7 +3,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { config } from '../config';
 import { AppModule } from './app.module';
 
-async function bootstrap() {
+async function bootstrap(): Promise<any> {
   const app = await NestFactory.create(AppModule);
   const documentOptions = new DocumentBuilder()
     .setTitle(config.TITLE)

@@ -11,21 +11,21 @@ export class Hero extends AggregateRoot {
   @Column({ length: 500 })
   public name: string;
 
-  public killEnemy(enemyId: string) {
+  public killEnemy(enemyId: string): void {
     // logic
     this.apply(new HeroKilledDragonEvent(this.id, enemyId));
   }
 
-  public addItem(itemId: string) {
+  public addItem(itemId: string): void {
     // logic
     this.apply(new HeroFoundItemEvent(this.id, itemId));
   }
 
-  public setData({ name }) {
+  public setData({ name }): void {
     this.name = name;
   }
 
-  public createHero() {
+  public createHero(): void {
     this.apply(new HeroCreatedEvent({ aggregateId: this.id, name: this.name }));
   }
 }

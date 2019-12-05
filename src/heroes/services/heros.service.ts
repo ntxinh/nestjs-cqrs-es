@@ -13,7 +13,7 @@ export class HeroesService {
     private readonly queryBus: QueryBus,
   ) {}
 
-  public async killDragon(id: string, dto: KillDragonDto) {
+  public async killDragon(id: string, dto: KillDragonDto): Promise<void> {
     return await this.commandBus.execute(
       new KillDragonCommand(id, dto.dragonId),
     );

@@ -4,7 +4,7 @@ import { HeroFoundItemEvent } from '../impl';
 
 @EventsHandler(HeroFoundItemEvent)
 export class HeroFoundItemHandler implements IEventHandler<HeroFoundItemEvent> {
-  public handle(event: HeroFoundItemEvent) {
+  public handle(event: HeroFoundItemEvent): void {
     console.log(clc.yellowBright('Async HeroFoundItemEvent...'));
   }
 }
