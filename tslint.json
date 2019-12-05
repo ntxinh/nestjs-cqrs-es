@@ -2,11 +2,24 @@
   "defaultSeverity": "error",
   "extends": ["tslint:recommended"],
   "rulesDirectory": [],
+  "jsRules": {
+    "no-unused-expression": true
+  },
   "rules": {
     "quotemark": [true, "single"],
     "object-literal-sort-keys": false,
     "arrow-parens": [true, "ban-single-arg-parens"],
     "typedef": [true, "call-signature"],
+    "no-async-without-await": true,
+    "max-line-length": [true, 150],
+    "variable-name": {
+      "options": [
+        "require-const-for-all-caps",
+        "ban-keywords",
+        "check-format",
+        "allow-leading-underscore"
+      ]
+    },
     "no-console": [false]
   }
 }
