@@ -12,5 +12,4 @@ Controller -> Service -> Query -> Repository -> Event -> Saga -> Event
 ```
 # Config database in .env file
 npm start
-npm run start:dev
 ```
