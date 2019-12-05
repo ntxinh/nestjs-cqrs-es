@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { ICommand, Saga, ofType } from '@nestjs/cqrs';
+import { ICommand, ofType, Saga } from '@nestjs/cqrs';
 import * as clc from 'cli-color';
-import { getRepository } from 'typeorm';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { getRepository } from 'typeorm';
 import { Event } from '../entities/event.entity';
 import { AggregateRootEvent } from '../events/aggregate-root.event';
 

@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import { GetHeroesQuery, GetHeroQuery } from '../queries/impl';
-import { KillDragonDto } from '../interfaces/kill-dragon-dto.interface';
-import { Hero } from '../entities/hero.entity';
 import { CreateHeroCommand, KillDragonCommand } from '../commands/impl';
 import { HeroDto } from '../dtos/hero.dto';
+import { Hero } from '../entities/hero.entity';
+import { KillDragonDto } from '../interfaces/kill-dragon-dto.interface';
+import { GetHeroesQuery, GetHeroQuery } from '../queries/impl';
 
 @Injectable()
 export class HeroesService {

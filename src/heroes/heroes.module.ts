@@ -1,14 +1,14 @@
 import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { CommandHandlers } from './commands/handlers';
-import { EventHandlers } from './events/handlers';
 import { HeroesGameController } from './controllers/heroes.controller';
+import { Hero } from './entities/hero.entity';
+import { EventHandlers } from './events/handlers';
 import { QueryHandlers } from './queries/handlers';
 import { HeroRepository } from './repository/hero.repository';
 import { HeroesGameSagas } from './sagas/heroes.sagas';
 import { HeroesService } from './services/heros.service';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { Hero } from './entities/hero.entity';
 
 @Module({
   imports: [

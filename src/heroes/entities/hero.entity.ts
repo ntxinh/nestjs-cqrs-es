@@ -1,5 +1,5 @@
 import { AggregateRoot } from '@nestjs/cqrs';
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { HeroFoundItemEvent, HeroKilledDragonEvent } from '../events/impl';
 import { HeroCreatedEvent } from '../events/impl';
 

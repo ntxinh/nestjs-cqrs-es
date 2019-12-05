@@ -1,9 +1,9 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
-import { HeroesService } from '../services/heros.service';
-import { KillDragonDto } from '../interfaces/kill-dragon-dto.interface';
-import { Hero } from '../entities/hero.entity';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { HeroDto } from '../dtos/hero.dto';
+import { Hero } from '../entities/hero.entity';
+import { KillDragonDto } from '../interfaces/kill-dragon-dto.interface';
+import { HeroesService } from '../services/heros.service';
 
 @Controller('heroes')
 @ApiTags('Heroes')

@@ -10,7 +10,8 @@
     "start:debug": "nodemon --config nodemon-debug.json",
     "prestart:prod": "npm run build --scripts-prepend-node-path",
     "start:prod": "node dist/src/main.js",
-    "lint": "tslint -p tsconfig.json -c tslint.json"
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "lint:fix": "npm run lint --fix"
   },
   "keywords": [],
   "author": "",
