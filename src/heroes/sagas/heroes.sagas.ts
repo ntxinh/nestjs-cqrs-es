@@ -11,15 +11,14 @@ const itemId = '0';
 @Injectable()
 export class HeroesGameSagas {
   @Saga()
-  dragonKilled = (events$: Observable<any>): Observable<ICommand> => {
-    return events$
-      .pipe(
-        ofType(HeroKilledDragonEvent),
-        delay(1000),
-        map(event => {
-          console.log(clc.redBright('Inside [HeroesGameSagas] Saga'));
-          return new DropAncientItemCommand(event.heroId, itemId);
-        }),
-      );
+  public dragonKilled = (events$: Observable<any>): Observable<ICommand> => {
+    return events$.pipe(
+      ofType(HeroKilledDragonEvent),
+      delay(1000),
+      map(event => {
+        console.log(clc.redBright('Inside [HeroesGameSagas] Saga'));
+        return new DropAncientItemCommand(event.heroId, itemId);
+      }),
+    );
   }
 }

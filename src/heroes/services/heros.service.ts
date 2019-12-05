@@ -13,21 +13,21 @@ export class HeroesService {
     private readonly queryBus: QueryBus,
   ) {}
 
-  async killDragon(id: string, dto: KillDragonDto) {
+  public async killDragon(id: string, dto: KillDragonDto) {
     return await this.commandBus.execute(
       new KillDragonCommand(id, dto.dragonId),
     );
   }
 
-  async findAll(): Promise<Hero[]> {
+  public async findAll(): Promise<Hero[]> {
     return await this.queryBus.execute(new GetHeroesQuery());
   }
 
-  async findById(id: string): Promise<Hero> {
+  public async findById(id: string): Promise<Hero> {
     return await this.queryBus.execute(new GetHeroQuery(id));
   }
 
-  async create(dto: HeroDto): Promise<void> {
+  public async create(dto: HeroDto): Promise<void> {
     await this.commandBus.execute(new CreateHeroCommand(dto));
   }
 }

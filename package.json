@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf dist && tsc",
     "start": "ts-node src/main.ts",
     "dev": "nodemon",
     "debug": "nodemon --config nodemon-debug.json",
+    "clean": "rimraf ./dist",
+    "tsc": "tsc",
+    "build": "npm run clean && npm run tsc",
     "typeorm": "ts-node ./node_modules/typeorm/cli.js",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "lint:fix": "npm run lint -- --fix",

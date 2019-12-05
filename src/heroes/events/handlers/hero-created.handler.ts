@@ -4,9 +4,8 @@ import * as clc from 'cli-color';
 import { HeroCreatedEvent } from '../impl';
 
 @EventsHandler(HeroCreatedEvent)
-export class HeroCreatedHandler
-  implements IEventHandler<HeroCreatedEvent> {
-  handle(event: HeroCreatedEvent) {
+export class HeroCreatedHandler implements IEventHandler<HeroCreatedEvent> {
+  public handle(event: HeroCreatedEvent) {
     console.log(clc.greenBright('HeroCreatedEvent...'));
   }
 }

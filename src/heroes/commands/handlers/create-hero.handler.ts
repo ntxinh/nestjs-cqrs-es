@@ -7,10 +7,10 @@ import { CreateHeroCommand } from '../impl';
 export class CreateHeroHandler implements ICommandHandler<CreateHeroCommand> {
   constructor(
     private readonly repository: HeroRepository,
-    private readonly publisher: EventPublisher
+    private readonly publisher: EventPublisher,
   ) {}
 
-  async execute(command: CreateHeroCommand) {
+  public async execute(command: CreateHeroCommand): Promise<void> {
     console.log(clc.greenBright('CreateHeroCommand...'));
 
     const { dto } = command;

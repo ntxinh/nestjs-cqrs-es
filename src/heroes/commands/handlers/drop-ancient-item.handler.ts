@@ -11,7 +11,7 @@ export class DropAncientItemHandler
     private readonly publisher: EventPublisher,
   ) {}
 
-  async execute(command: DropAncientItemCommand) {
+  public async execute(command: DropAncientItemCommand): Promise<void> {
     console.log(clc.yellowBright('Async DropAncientItemCommand...'));
 
     const { heroId, itemId } = command;

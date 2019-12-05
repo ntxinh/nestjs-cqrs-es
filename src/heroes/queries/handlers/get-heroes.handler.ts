@@ -7,7 +7,7 @@ import { GetHeroesQuery } from '../impl';
 export class GetHeroesHandler implements IQueryHandler<GetHeroesQuery> {
   constructor(private readonly repository: HeroRepository) {}
 
-  async execute(query: GetHeroesQuery) {
+  public async execute(query: GetHeroesQuery) {
     console.log(clc.yellowBright('Async GetHeroesQuery...'));
     return await this.repository.findAll();
   }

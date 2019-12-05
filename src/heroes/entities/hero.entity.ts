@@ -3,29 +3,29 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { HeroFoundItemEvent, HeroKilledDragonEvent } from '../events/impl';
 import { HeroCreatedEvent } from '../events/impl';
 
-@Entity({name: 'heroes'})
+@Entity({ name: 'heroes' })
 export class Hero extends AggregateRoot {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  public id: string;
 
   @Column({ length: 500 })
-  name: string;
+  public name: string;
 
-  killEnemy(enemyId: string) {
+  public killEnemy(enemyId: string) {
     // logic
     this.apply(new HeroKilledDragonEvent(this.id, enemyId));
   }
 
-  addItem(itemId: string) {
+  public addItem(itemId: string) {
     // logic
     this.apply(new HeroFoundItemEvent(this.id, itemId));
   }
 
-  setData({ name }) {
+  public setData({ name }) {
     this.name = name;
   }
 
-  createHero() {
+  public createHero() {
     this.apply(new HeroCreatedEvent({ aggregateId: this.id, name: this.name }));
   }
 }

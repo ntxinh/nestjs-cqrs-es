@@ -29,6 +29,6 @@ const configs = {
     PORT: 7072,
   },
 };
-const config = {...configs.base, ...configs[env]};
+const config = { ...configs.base, ...configs[env] };
 
-export {config};
+export { config };

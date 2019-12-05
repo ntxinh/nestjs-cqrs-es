@@ -10,25 +10,25 @@ import {
 @Entity({name: 'events'})
 export class Event {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  public id: string;
 
   @Column()
-  className: string;
+  public className: string;
 
   // @Column('json') -> for mysql, postgres
   @Column('simple-json')
-  payload: any;
+  public payload: any;
 
   @Column()
-  aggregateId: string;
+  public aggregateId: string;
 
   // All the following properties are to ensure events are not mutated
   @CreateDateColumn()
-  createdAt: Date;
+  public createdAt: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  public updatedAt: Date;
 
   @VersionColumn()
-  version: string;
+  public version: string;
 }

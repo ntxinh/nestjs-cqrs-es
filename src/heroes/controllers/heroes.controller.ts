@@ -8,28 +8,26 @@ import { HeroesService } from '../services/heros.service';
 @Controller('heroes')
 @ApiTags('Heroes')
 export class HeroesGameController {
-  constructor(
-    private readonly heroesService: HeroesService,
-  ) {}
+  constructor(private readonly heroesService: HeroesService) {}
 
   @ApiOperation({ summary: 'Get A Hero' })
   @ApiResponse({ status: 200, description: 'Get hero by id' })
   @Get(':id')
-  async findById(@Param('id') id: string): Promise<Hero> {
+  public async findById(@Param('id') id: string): Promise<Hero> {
     return await this.heroesService.findById(id);
   }
 
   @ApiOperation({ summary: 'Get Heroes' })
   @ApiResponse({ status: 200, description: 'Get heroes' })
   @Get()
-  async findAll(): Promise<Hero[]> {
+  public async findAll(): Promise<Hero[]> {
     return await this.heroesService.findAll();
   }
 
   @ApiOperation({ summary: 'Create Hero' })
   @ApiResponse({ status: 201, description: 'Create hero' })
   @Post()
-  async create(@Body() dto: HeroDto) {
+  public async create(@Body() dto: HeroDto) {
     await this.heroesService.create(dto);
     return true;
   }
@@ -37,7 +35,7 @@ export class HeroesGameController {
   @ApiOperation({ summary: 'Kill Dragon' })
   @ApiResponse({ status: 200, description: 'Hero kill dragon' })
   @Post(':id/kill')
-  async killDragon(@Param('id') id: string, @Body() dto: KillDragonDto) {
+  public async killDragon(@Param('id') id: string, @Body() dto: KillDragonDto) {
     return await this.heroesService.killDragon(id, dto);
   }
 }

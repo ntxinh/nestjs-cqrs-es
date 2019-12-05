@@ -15,6 +15,8 @@ async function bootstrap() {
   // app.setGlobalPrefix(config.PREFIX);
   app.enableCors();
   SwaggerModule.setup(config.API_EXPLORER_PATH, app, document);
-  await app.listen(config.PORT, () => console.log(`Application is listening on port ${config.PORT}.`));
+  await app.listen(config.PORT, () =>
+    console.log(`Application is listening on port ${config.PORT}.`),
+  );
 }
 bootstrap();

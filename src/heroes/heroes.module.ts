@@ -11,10 +11,7 @@ import { HeroesGameSagas } from './sagas/heroes.sagas';
 import { HeroesService } from './services/heros.service';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([Hero, HeroRepository]),
-    CqrsModule
-  ],
+  imports: [TypeOrmModule.forFeature([Hero, HeroRepository]), CqrsModule],
   controllers: [HeroesGameController],
   providers: [
     HeroesService,

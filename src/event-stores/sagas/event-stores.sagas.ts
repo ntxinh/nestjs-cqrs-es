@@ -10,7 +10,7 @@ import { AggregateRootEvent } from '../events/aggregate-root.event';
 @Injectable()
 export class EventStoresSagas {
   @Saga()
-  eventPublished = (events$: Observable<any>): Observable<ICommand> => {
+  public eventPublished = (events$: Observable<any>): Observable<ICommand> => {
     return events$.pipe(
       ofType(AggregateRootEvent),
       map(event => {

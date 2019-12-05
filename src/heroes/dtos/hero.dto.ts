@@ -2,8 +2,8 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class HeroDto {
   @ApiProperty()
-  id: string;
+  public id: string;
 
   @ApiProperty()
-  name: string;
+  public name: string;
 }
