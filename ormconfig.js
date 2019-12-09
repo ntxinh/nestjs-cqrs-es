@@ -5,7 +5,10 @@ module.exports = {
   username: 'sa',
   password: '123',
   database: 'boilerplate_development',
+  // env: dev
   entities: ['**/**/entities/*.entity{.ts,.js}'],
+  // env: prod
+  // entities: ['dist/src/**/entities/*.entity{.ts,.js}'],
   synchronize: true,
   logging: false,
 };
