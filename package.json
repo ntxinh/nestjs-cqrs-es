@@ -27,11 +27,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@godaddy/terminus": "^4.3.1",
     "@nestjs/common": "^6.10.5",
     "@nestjs/core": "^6.10.5",
     "@nestjs/cqrs": "^6.1.0",
     "@nestjs/platform-express": "^6.10.5",
     "@nestjs/swagger": "^4.0.0",
+    "@nestjs/terminus": "^6.5.3",
     "@nestjs/typeorm": "^6.2.0",
     "cli-color": "^2.0.0",
     "dotenv": "^8.2.0",
