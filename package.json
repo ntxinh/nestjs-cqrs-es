@@ -38,7 +38,7 @@
     "cli-color": "^2.0.0",
     "dotenv": "^8.2.0",
     "mssql": "^6.0.1",
-    "pm2": "^4.2.0",
+    "pm2": "^5.2.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.3",
     "swagger-ui-express": "^4.1.2",
